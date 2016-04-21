@@ -6,12 +6,28 @@ class ClassroomsController < ApplicationController
 
    def new
       @classroom = Classroom.new
+      @all_courses = Course.all
+      @all_students = Student.all
    end
 
    def create
-end
+    @classroom = Classroom.new(classroom_params)
 
-   def course_params
-      params.require(:classroom).permit(:students_id, :courses_id)
+    respond_to do |format|
+      if @classroom.save
+         params[:students_id].split(',').each do |id|
+              @classroom.students_id << Student.find(id)
+           end
+        format.html { redirect_to @classroom, notice: 'Course was successfully created.' }
+        format.json { render :show, status: :created, location: @classroom }
+      else
+        format.html { render :new }
+        format.json { render json: @classroom.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+   def classroom_params
+      params.permit( :courses_id,:students_id )
     end
 end

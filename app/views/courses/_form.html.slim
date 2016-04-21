@@ -15,4 +15,7 @@
   .field
     = f.label :status
     = f.number_field :status
+    .field
+    = fields_for (@classrooms) do |cl|
+        = collection_select(:students, :student_id, @all_students, :id, :name, {}, {:multiple => true})
   .actions = f.submit

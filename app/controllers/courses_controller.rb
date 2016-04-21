@@ -10,6 +10,12 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+        @studentsclass = Classroom.where(:course_id => params[:id])
+        i = 0
+        @studentsclass.each do |lala|
+          @students=Student.where(:id => lala.student_id)
+          i += 1
+        end
   end
 
   # GET /courses/new
@@ -28,11 +34,10 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    @try = params[:students][:student_id]
+    @student = params[:students][:student_id]
 
 
-     @try.each do |student|
-
+     @student.each do |student|
       if !student.empty?
 
         @course.classrooms.build(:student_id => student)

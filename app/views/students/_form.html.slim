@@ -6,13 +6,13 @@
         - @student.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
+  .ls-label.col-md-3
+    .ls-label-text Nome Estudante
     = f.text_field :name
-  .field
-    = f.label :register_number
+  .ls-label.col-md-3
+    .ls-label-text RA
     = f.text_field :register_number
-  .field
-    = f.label :status
+  .ls-label.col-md-3
+    .ls-label-text Status
     = f.number_field :status
-  .actions = f.submit
+  .ls-btn = f.submit

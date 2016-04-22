@@ -1,10 +1,10 @@
-h1 Listing courses
+h1.ls-title-intro Cursos
 
-table
+table.ls-table
   thead
     tr
-      th Name
-      th Description
+      th Curso
+      th Descricao
       th Status
       th
       th
@@ -16,10 +16,10 @@ table
         td = course.name
         td = course.description
         td = course.status
-        td = link_to 'Show', course
-        td = link_to 'Edit', edit_course_path(course)
-        td = link_to 'Destroy', course, data: {:confirm => 'Are you sure?'}, :method => :delete
+        td = link_to 'Mostrar', course
+        td = link_to 'Modificar', edit_course_path(course)
+        td = link_to 'Deletar', course, data: {:confirm => 'Tem certeza?'}, :method => :delete
 
 br
 
-= link_to 'New Course', new_course_path
+.ls-btn = link_to 'Adicionar Curso', new_course_path

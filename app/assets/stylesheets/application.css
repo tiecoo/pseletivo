@@ -14,3 +14,9 @@
  *= require_self
  *= require_locastyle
  */
+.alt-btn{
+   margin-top: 7px;
+}
+a:hover{
+   background-color: transparent;
+}

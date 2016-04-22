@@ -11,10 +11,9 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
         @studentsclass = Classroom.where(:course_id => params[:id])
-        i = 0
+        @students ||= []
         @studentsclass.each do |lala|
-          @students=Student.where(:id => lala.student_id)
-          i += 1
+          @students << Student.where(:id => lala.student_id)
         end
   end
 

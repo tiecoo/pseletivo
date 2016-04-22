@@ -1,15 +1,16 @@
+h1.ls-title-intro = @student.name
+
 p#notice = notice
 
 p
-  strong Name:
+  strong Nome:
   = @student.name
 p
-  strong Register number:
+  strong RA:
   = @student.register_number
 p
   strong Status:
   = @student.status
 
-= link_to 'Edit', edit_student_path(@student)
-'|
-= link_to 'Back', students_path
+.ls-btn = link_to 'Edit', edit_student_path(@student)
+.ls-btn.alt-btn = link_to 'Back', students_path

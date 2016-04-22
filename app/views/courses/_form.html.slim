@@ -6,16 +6,16 @@
         - @course.errors.full_messages.each do |message|
           li = message
 
-  .field
-    = f.label :name
+  .ls-label.col-md-3
+    .ls-label-text Nome Curso
     = f.text_field :name
-  .field
-    = f.label :description
+  .ls-label.col-md-3
+    .ls-label-text Descricao
     = f.text_field :description
-  .field
-    = f.label :status
+  .ls-label.col-md-3
+    .ls-label-text Status
     = f.number_field :status
-    .field
+    .ls-label.col-md-3
     = fields_for (@classrooms) do |cl|
         = collection_select(:students, :student_id, @all_students, :id, :name, {}, {:multiple => true})
-  .actions = f.submit
+  .ls-btn = f.submit

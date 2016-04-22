@@ -2,6 +2,6 @@ class Student < ActiveRecord::Base
 
    validates :name, :presence => true
 
-   has_many :classrooms
-   has_many :courses, :through => :classrooms
+   belongs_to :classrooms
+   #belongs_to :courses, :through => :classrooms
 end

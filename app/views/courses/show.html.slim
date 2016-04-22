@@ -1,10 +1,13 @@
+h1.ls-title.intro = @course.name
+
 p#notice = notice
 
 p
-  strong Name:
+  strong Curso:
   = @course.name
+
 p
-  strong Description:
+  strong Descricao:
   = @course.description
 p
   strong Status:
@@ -17,9 +20,7 @@ p
 
   tbody
     - @students.each do |student|
-
       tr
         td = student.name
-= link_to 'Edit', edit_course_path(@course)
-'|
-= link_to 'Back', courses_path
+.ls-btn = link_to 'Modificar', edit_course_path(@course)
+.ls-btn.alt-btn= link_to 'Voltar', courses_path
